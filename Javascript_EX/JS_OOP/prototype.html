@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            function Person(name, first, second, third){
+                this.name = name;
+                this.first = first;
+                this.second = second;
+                this.third = third;
+            }
+
+            Person.prototype.sum = function(){
+                    return (this.first + this.second);
+                }
+            
+            var park = new Person('park', 10, 20, 30);
+            var choi = new Person('choi', 30, 20, 10);
+            console.log("park.sum()", park.sum());
+            console.log("choi.sum()", choi.sum());
+        </script>
+    </body>
+</html>

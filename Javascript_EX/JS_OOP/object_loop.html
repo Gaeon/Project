@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <script>
+            var memberArr = ['gaeon', 'sosong', 'dopark'];
+
+            var memberObj = {
+                manager:"gaeon",
+                developer : "sosong",
+                designer : "dopark"
+            }
+            
+            console.group('array loop');
+            var i = 0;
+            while(i < memberArr.length){
+                console.log(memberArr[i]);
+                i++;
+            }
+            console.groupEnd('array loop');
+
+            console.group('object loop');
+            for(var name in memberObj)
+            {
+                console.log(name+" : "+memberObj[name]);
+            }
+            console.groupEnd('object loop');
+
+        </script>
+    </body>
+</html>

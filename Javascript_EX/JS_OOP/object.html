@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            var memberArr = ['gaeon', 'sosong', 'dopark'];
+            console.log("memberArr[1]", memberArr[1]);
+
+            var memberObj = {
+                manager:"gaeon",
+                developer : "sosong",
+                designer : "dopark"
+            }
+            console.log("memberObj['designer']", memberObj['designer']);
+            console.log("memberObj.designer", memberObj.designer);
+
+            memberObj.new = 'hyeonjik';
+            console.log("memberObj.new", memberObj.new);
+
+
+            memberObj.designer = 'moooeyg';
+            console.log("memberObj.designer", memberObj.designer);
+           
+            delete memberObj.manager;
+            console.log("after delete memeberObj.manager", memberObj.manager);
+        </script>
+    </body>
+</html>
