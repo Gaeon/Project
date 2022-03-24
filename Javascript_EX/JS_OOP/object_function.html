@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <script>
+            var kim = {name:'kim', first:10, second:20};
+            var lee = {name:'kim', first:10, second:10};
+            function sum1(){
+                return this.first+this.second;
+            }
+            function sum2(prefix){
+                return this.first+this.second;
+            }
+
+            sum1.call(kim);
+            // sum이라는 객체를 실행시킴 == sum()
+            // 모든 함수는 call이라는 method 갖고 있음
+            // this가 kim이 됨
+
+            console.log("sum2.call(kim)",sum2.call(kim,'=> '));
+            console.log("sum2.call(lee)",sum2.call(lee,': '));
+
+            sum.bind(kim);
+            
+        </script>
+    </body>
+</html>
