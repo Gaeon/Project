@@ -13,7 +13,14 @@
             function PersonPlus(name, first, second, third){
                 Person.call(this, name, first, second);
                 this.third = third;
+            
             }
+            //PersonPlus.prototype.__proto__ = Person.prototype;
+            PersonPlus.prototype = Object.create(Person.prototype);
+            //PerosnPlus의 prototype이 덮어써짐
+            PersonPlus.prototype.constructor = PersonPlus;
+            //PersonPlus의 prototype을 다시 PersonPlus로 바꿔줌
+
             PersonPlus.prototype.avg = function(){
                 return (this.first+this.second+this.third)/3;
             }
@@ -21,6 +28,7 @@
             var kim = new PersonPlus('kim', 10, 20 ,30);
             console.log("kim.sum()", kim.sum());
             console.log("kim.avg()", kim.avg());
+            console.log("kim.constructor", kim.constructor);
         </script>
     </body>
 </html>
