@@ -8,8 +8,6 @@ const backgroundImage = document.createElement("img");
 
 backgroundImage.src = `img/${chosenImage}`;
 
-console.log(backgroundImage);
-
 //appendChild
-//javascript에서 html을 추가하는 방법
+//javascript에서 html을 뒤에 추가하는 방법
 document.body.appendChild(backgroundImage);
