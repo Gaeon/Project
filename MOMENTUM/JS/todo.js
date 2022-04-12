@@ -18,12 +18,18 @@ function saveTodos() {
 function deleteTodo(event) {
   const li = event.target.parentElement;
   li.remove();
+  //filter
+  //array에서 item을 지우고자 할때
+  //지우고자 하는 item을 뺀 새로운 array를 만듦
+  todos = todos.filter(todo => todo.id !== parseInt(li.id));
+  saveTodos();
 }
 
 function paintTodo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteTodo)
@@ -36,8 +42,12 @@ function handleTodoSubmit(event) {
   event.preventDefault();
   const newTodo = todoInput.value;
   todoInput.value = "";
-  todos.push(newTodo);
-  paintTodo(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  todos.push(newTodoObj);
+  paintTodo(newTodoObj);
   saveTodos();
 }
 
