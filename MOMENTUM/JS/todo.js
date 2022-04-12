@@ -4,7 +4,8 @@ const todoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos"
 
-const todos = [];
+let todos = [];
+
 
 function saveTodos() {
   //JSON.stringify()
@@ -44,7 +45,10 @@ todoForm.addEventListener("submit", handleTodoSubmit);
 
 const savedTodos = localStorage.getItem(TODOS_KEY);
 
-if(saveTodos) {
+if(savedTodos) {
   const parsedTodos = JSON.parse(savedTodos);
-  parsedTodos.forEach((item) => console.log("this is the turn of", item));
+  todos = parsedTodos;
+  // todos 배열은 항상 빈 배열로 시작함
+  // todos를 local storage에서 발견되는 것들로 채우고 시작함
+  parsedTodos.forEach(paintTodo);
 }
