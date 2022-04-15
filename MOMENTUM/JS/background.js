@@ -5,6 +5,7 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 //createElement
 //javascript에서 html element를 생성하는 방법
 const backgroundImage = document.createElement("img");
+backgroundImage.className = "backgroundImg";
 
 backgroundImage.src = `img/${chosenImage}`;
 
