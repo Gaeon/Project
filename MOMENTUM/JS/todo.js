@@ -1,64 +1,63 @@
-const todoForm = document.getElementById("todo-form");
-const todoInput = todoForm.querySelector("input");
-const todoList = document.getElementById("todo-list");
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = document.querySelector("#todo-form input");
+const toDoList = document.getElementById("todo-list");
 
-const TODOS_KEY = "todos"
+const TODOS_KEY = "todos";
 
-let todos = [];
+let toDos = [];
 
-
-function saveTodos() {
+function saveToDos() {
   //JSON.stringify()
   //변수 등을 문자열 형태로 바꿈
-  localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
   //JSON.parse()
   //문자열 형태의 변수를 실제 변수로 바꿈
 }
 
-function deleteTodo(event) {
+function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
   //filter
   //array에서 item을 지우고자 할때
   //지우고자 하는 item을 뺀 새로운 array를 만듦
-  todos = todos.filter(todo => todo.id !== parseInt(li.id));
-  saveTodos();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
-function paintTodo(newTodo) {
+function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
   const span = document.createElement("span");
   span.innerText = newTodo.text;
   const button = document.createElement("button");
   button.innerText = "❌";
-  button.addEventListener("click", deleteTodo)
+  button.addEventListener("click", deleteToDo);
   li.appendChild(span);
   li.appendChild(button);
-  todoList.appendChild(li);
+  toDoList.appendChild(li);
 }
 
-function handleTodoSubmit(event) {
+function handleToDoSubmit(event) {
   event.preventDefault();
-  const newTodo = todoInput.value;
-  todoInput.value = "";
+  const newTodo = toDoInput.value;
+  toDoInput.value = "";
   const newTodoObj = {
     text: newTodo,
     id: Date.now(),
   };
-  todos.push(newTodoObj);
-  paintTodo(newTodoObj);
-  saveTodos();
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
 }
 
-todoForm.addEventListener("submit", handleTodoSubmit);
+toDoForm.addEventListener("submit", handleToDoSubmit);
 
-const savedTodos = localStorage.getItem(TODOS_KEY);
+const savedToDos = localStorage.getItem(TODOS_KEY);
 
-if(savedTodos) {
-  const parsedTodos = JSON.parse(savedTodos);
-  todos = parsedTodos;
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
   // todos 배열은 항상 빈 배열로 시작함
   // todos를 local storage에서 발견되는 것들로 채우고 시작함
-  parsedTodos.forEach(paintTodo);
+  parsedToDos.forEach(paintToDo);
 }
