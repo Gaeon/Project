@@ -3,31 +3,56 @@
 }
 
 .backgroundImg {  
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-size: cover;
+  position:absolute;
+  top:0%;
+  right: 0%;
+  z-index: -1;
+  opacity: .3;
+}
+
+#quote{
+  color:rgb(38, 51, 58);
+  font-size: large;
+  font-family: monospace;
+}
+
+#weather{
+  font-size: large;
+  font-family:monospace;
+  padding-top: 30px;
+  color:rgb(38, 51, 58);
+}
+
+#todo-list{
+  padding-left: 380px;
+  padding-right: 380px;
+  color:rgb(38, 51, 58);
+  font-size:large;
+  font-family: monospace;
+
 }
 
 h1 {
-  text-align: center;
-  text-decoration: cornflowerblue;
+  color:rgb(38, 51, 58);
+  font-family:monospace;
+  font-size: 75px;
 }
 
 h2 {
-  text-align: center;
-  text-decoration: cadetblue;
+  color:rgb(38, 51, 58);
+  font-size: 75px;
+  font-family: monospace;
 }
 
 input[type=text] {
+  color:rgb(100, 148, 154);
   border: none;
-  border-bottom: 2px solid cornflowerblue;
+  border-bottom: 2.5px solid;
   text-align: center;
-  font-size: larger;
+  font-size: 23px;
   width:50%;
-}
-
-#login-form {
-  text-align: center;
-}
-#todo-form {
-  text-align: center;
+  font-family: monospace;
 }
